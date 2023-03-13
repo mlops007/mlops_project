@@ -1,0 +1,6 @@
+pandas
+seaborn
+sklearn
+seaborn
+numpy
+-e .
