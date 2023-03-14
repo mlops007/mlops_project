@@ -3,4 +3,9 @@ seaborn
 sklearn
 seaborn
 numpy
+matplotlib
+xgboost
+scikit-learn
+catboost
+tqdm
 -e .
