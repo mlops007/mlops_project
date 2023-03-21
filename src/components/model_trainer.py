@@ -33,10 +33,10 @@ class ModelTrainer:
         try:
             logging.info("Split training and test input data")
             X_train,y_train,X_test,y_test=(
-                train_array[:,:-2],
-                train_array[:,-2],
-                test_array[:,:-2],
-                test_array[:,-2]
+                train_array[:,:-1],
+                train_array[:,-1],
+                test_array[:,:-1],
+                test_array[:,-1]
             )
             models = {
                 "Random Forest": RandomForestRegressor(),
@@ -100,7 +100,8 @@ class ModelTrainer:
 
             if best_model_score<0.6:
                 raise CustomException("No best model found")
-            logging.info(f"Best found model on both training and testing dataset")
+            logging.info(f"Model Report : {model_report}")
+            logging.info(f"Best found model on both training and testing dataset {best_model}")
 
             save_object(
                 file_path=self.model_trainer_config.trained_model_file_path,
@@ -110,6 +111,7 @@ class ModelTrainer:
             predicted=best_model.predict(X_test)
 
             r2_square = r2_score(y_test, predicted)
+            logging.info(f"R2 Score is : {r2_square}")
             return r2_square    
             
         except Exception as e:
