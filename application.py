@@ -1,4 +1,3 @@
-import pickle
 from flask import Flask, request, render_template
 import numpy as np
 import pandas as pd
@@ -9,7 +8,6 @@ from src.logger import logging
 application = Flask(__name__)
 
 app = application
-app.debug = True
 
 ##Homepage
 
@@ -37,7 +35,8 @@ def predict_datapoint():
 
         predict_pipeline = PredictPipeline()
         results = predict_pipeline.predict(pred_df)
-        logging.info(f"prediction pipeline : {results}")
+        logging.info(f"prediction pipeline : {results[0]}")
+        print("prediction pipeline results : ", results[0])
         return render_template('home.html', results = results[0])
 
 if __name__=="__main__":
