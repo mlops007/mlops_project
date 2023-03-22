@@ -29,21 +29,21 @@ class CustomData:
         reading_score: int,
         writing_score: int):
 
-        self.gender = "gender"
+        self.gender = gender
 
-        self.race_ethnicity = "race/ethnicity"
+        self.race_ethnicity = race_ethnicity
 
-        self.parental_level_of_education = "parental level of education"
+        self.parental_level_of_education = parental_level_of_education
 
-        self.lunch = "lunch"
+        self.lunch = lunch
 
-        self.test_preparation_course = "test preparation course"
+        self.test_preparation_course = test_preparation_course
 
-        self.math_score = "math score"
+        self.math_score = math_score
 
-        self.reading_score = "reading score"
+        self.reading_score = reading_score
 
-        self.writing_score = "writing score"
+        self.writing_score = writing_score
     
     def get_data_as_data_frame(self):
         try:
@@ -56,6 +56,7 @@ class CustomData:
                 "math_score": [self.math_score],
                 "reading_score": [self.reading_score],
                 "writing_score": [self.writing_score]
+
             }
 
             return pd.DataFrame(custom_data_input_dict)    

@@ -23,10 +23,9 @@ class DataIngestion:
     def iniitiate_data_ingestion(self):
         logging.info('Entry into Data Ingestion methood')
         try:
-            df = pd.read_csv('notebooks\data\StudentsPerformance.csv')
+            df = pd.read_csv('notebooks\data\StudentsPerformanceModified.csv')
             logging.info('Read the dataset as pandas dataframe')
-            df['total_score'] = df['math score'] + df['reading score'] + df['writing score']
-            df['average'] = df['total_score']/3
+            df['total'] = df['math_score'] + df['reading_score'] + df['writing_score']
             logging.info('Did minor transformations')
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok = True)
             os.makedirs(os.path.dirname(self.ingestion_config.test_data_path), exist_ok = True)
